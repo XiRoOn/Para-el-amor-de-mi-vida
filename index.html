@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Andrea ❤️</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+            text-align: center;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+            display: none; /* Ocultar todos los elementos por defecto */
+        }
+        .hearts {
+            font-size: 30px;
+            animation: float 1.5s infinite alternate;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .yes-btn, .option-btn {
+            background: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        .no-btn {
+            background: gray;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" id="initialMessage" style="display: block;">
+        <h2>Una carta para Andrea (Del amor de tu vida) ❤️</h2>
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXgwY3hjdzJobzZ5ejVxZnR1Y21icjFwbW5zZzR1YWxyYzA2dmpqYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7Lk37DKabPkaJ9j9VM/giphy.gif" alt="Carta de amor" width="200">
+        <button class="yes-btn" onclick="showMessage()">Ábreme ❤️</button>
+    </div>
+
+    <div class="card" id="message" style="display: none;">
+        <h2>Mi loba, eres lo mejor que me ha pasado en la vida, eres una mujer maravillosa y que admiro mucho, la mujer de mis sueños y con la que quiero compartir el resto de mis días, eres el motivo de mi alegria y razon de ser, Te amo con todo mi corazón por siempre y para siempre. ❤️</h2>
+        <img src="https://media.giphy.com/media/APWIyfzXk8lMI/giphy.gif?cid=790b7611y09age8yflk5jn0vusf020ams7968v656bzmnt6h&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Corazón animado" width="200">
+        <button class="yes-btn" onclick="showLoveMessage()">Presioname ❤️</button>
+    </div>
+
+    <div class="card" id="loveMessage" style="display: none;">
+        <h2>Me enamoré de ti desde aquella vez en que pude acompañarte por primera vez, fue la primera vez en la que me sentí exageradamente nervioso, desde ese día sentí algo, algo especial y diferente, desde ese momento... me di cuenta que tú ibas a ser el amor de mi vida 💘</h2>
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2hpMjNycGpndGtuOWJ1ZXU3aWpiYjJ2bTFtYW45MXA1Z3FrdTM2aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nzgVnpyBizF48NSJ8G/giphy.gif" alt="Gif de amor" width="200">
+        <button class="yes-btn" onclick="showSpecialMessage()">Presiona aquí ❤️</button>
+    </div>
+
+    <!-- Nueva sección agregada después del mensaje de enamoramiento -->
+    <div class="card" id="specialMessage" style="display: none;">
+        <h2>Desde entonces, cada momento, cada salida y cada tiempo contigo es lo más bonito y más hermoso que he podido vivir en toda mi vida, te agradezco por todos los momentos y los que faltan ❤️❤️‍🩹</h2>
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmg0cGRhcHE2YXZ1dzYwMnl4eTg5dm1iMTI1aHF3MWlxNjdmcDJyNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kbKI3K06oEJ4IIyqex/giphy.gif" alt="Amor eterno" width="200">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHhzdGc3N2k3emZib3E1cmluYng1Y2Y0M2lwbnV2ZHk1OWh4aGx5NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zSaN2PdkkmtrzWlmWa/giphy.gif" alt="Momento juntos" width="200">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGNjNG1uc3Z3Ymtid3NsOWJ0ZG04dWMwbjY1cGlsZjN6azJoc3RjbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Y3F1D4SFqZ0SInX66X/giphy.gif" alt="Recuerdos juntos" width="200">
+        <button class="yes-btn" onclick="showNightRequest()">Dale click aqui ❤️</button>
+    </div>
+
+    <!-- Nueva sección que pides -->
+    <div class="card" id="nightRequest" style="display: none;">
+        <h2>Por eso quiero pedirte una cosa esta noche... ❤️</h2>
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnVsYjBhaDh2dnV5d2pyNnAwYW5jZWNsOWJycmh3djRtaDRwaG14dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oU7xPhvBW73xnrPIyQ/giphy.gif" alt="Petición especial" width="200">
+        <button class="yes-btn" onclick="showQuestion()">Presioname ❤️</button>
+    </div>
+
+    <div class="card" id="question">
+        <h2>¿Quieres ser mi San Valentín por primera vez? ❤️</h2>
+        <img src="https://media.giphy.com/media/8QbwUh40Hl96yMgvOx/giphy.gif?cid=790b7611y6a4vabjnoqdypewms298ei6bf9c2uhea4zqrhe0&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Pareja enamorada" width="200">
+        <div class="buttons">
+            <button class="yes-btn" onclick="showLoveResponse()">Sí</button>
+            <button class="no-btn" onclick="showThinkAgain()">No</button>
+        </div>
+    </div>
+
+    <div class="card" id="thinkAgain">
+        <h2>¿Estás segura, mi amor? Piénsalo bien... ❤️</h2>
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDZtbDBodzk3OTdiMmtiNnpveHFjYzI2c3p4OWNydGp2dGJ5NDhubCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XgB1iZOFFkUXbOhNXt/giphy.gif" alt="Pensando en ti" width="200">
+        <button class="yes-btn" onclick="showQuestion()">Volver</button>
+    </div>
+
+    <div class="card" id="loveResponse">
+        <h2>Sabía que dirías que sí, mi amog. ❤️</h2>
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXExdGk2YTJ1bGU3bG12dzF0MGhiNWJ3ZzY4eDNqcG9nZ2FlaHN0ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EeCjVJh7FOsMT006i2/giphy.gif" alt="Beso romántico" width="200">
+        <button class="yes-btn" onclick="showDinnerOptions()">Dame click 🍽️</button>
+    </div>
+
+    <div class="card" id="dinnerOptions">
+        <h2>Te toca elegir la cena, ¿Qué va a querer que pidamos de cenar mi princesa? 🍽️</h2>
+        <img src="https://media.giphy.com/media/49iOYVoe9VwHPpqTap/giphy.gif?cid=ecf05e47hmtgpk8p3i16c1rw1sfaxza46dj0auo9prt9sagz&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Cena romántica" width="200">
+        <div class="buttons">
+            <button class="option-btn" onclick="showFinalMessage('hamburguesas')">1️⃣ Hamburguesas</button>
+            <button class="option-btn" onclick="showFinalMessage('pizza')">2️⃣ Pizza</button>
+            <button class="option-btn" onclick="showFinalMessage('otra cosa')">3️⃣ Otra cosa</button>
+        </div>
+    </div>
+
+    <div class="card" id="finalMessage">
+        <h2 id="finalText"></h2>
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHV6OXJqeG9zNDR3Nnp2aGs4cmNseXM3NDUzMzIzaDRua2ZxbzNybSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/M6DGc0uawRT2g/giphy.gif" alt="Amor eterno" width="200">
+        <button class="yes-btn" onclick="showEndMessage()">Finalizar ❤️</button>
+    </div>
+
+    <div class="card" id="endMessage" style="display: none;">
+        <h2>Espero que disfrutes de este día y te sientas especial porque eso es lo que eres, una mujer única, autentica, hermosa, preciosa y muy especial, jamás me cansaré de decirlo, estoy profundamente enamorado de ti, quiero que guardes esta página para que recuerdes que SIEMPRE te voy a amar y estaré para ti mi futura esposa, "Te amo mil millones" 🤍😘</h2>
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZG1mc3RseTB6c3JqcHllY2NxbHZmY2R3dnVhdWc1ZzE3cTl5ZzJ5dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DTbfl7AmknPpVDWVYs/giphy.gif" alt="Amor eterno" width="200">
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById('initialMessage').style.display = 'none';
+            document.getElementById('message').style.display = 'block';
+        }
+
+        function showLoveMessage() {
+            document.getElementById('message').style.display = 'none';
+            document.getElementById('loveMessage').style.display = 'block';
+        }
+
+        function showSpecialMessage() {
+            document.getElementById('loveMessage').style.display = 'none';
+            document.getElementById('specialMessage').style.display = 'block';
+        }
+
+        function showNightRequest() {
+            document.getElementById('specialMessage').style.display = 'none';
+            document.getElementById('nightRequest').style.display = 'block';
+        }
+
+        function showQuestion() {
+            document.getElementById('nightRequest').style.display = 'none';
+            document.getElementById('question').style.display = 'block';
+        }
+
+        function showThinkAgain() {
+            document.getElementById('question').style.display = 'none';
+            document.getElementById('thinkAgain').style.display = 'block';
+        }
+
+        function showLoveResponse() {
+            document.getElementById('question').style.display = 'none';
+            document.getElementById('loveResponse').style.display = 'block';
+        }
+
+        function showDinnerOptions() {
+            document.getElementById('loveResponse').style.display = 'none';
+            document.getElementById('dinnerOptions').style.display = 'block';
+        }
+
+        function showFinalMessage(dinnerOption) {
+            document.getElementById('dinnerOptions').style.display = 'none';
+            document.getElementById('finalMessage').style.display = 'block';
+            document.getElementById('finalText').innerText = 'Bueno, Vamos a pedir ' + dinnerOption + ' .Lo que sea para mi reina hermosa ❤️';
+        }
+
+        function showEndMessage() {
+            document.getElementById('finalMessage').style.display = 'none';
+            document.getElementById('endMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
